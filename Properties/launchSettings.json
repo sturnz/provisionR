@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Jasmin1": {
+      "commandName": "Project",
+      "commandLineArgs": "-pa 50 -dir 100"
+    }
+  }
+}
