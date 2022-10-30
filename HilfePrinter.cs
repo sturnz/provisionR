@@ -18,7 +18,8 @@ namespace Jasmin1
                                 "-pa        Provisionsanteil in Prozent (Ganzzahl)\n"   +
                                 "-dak       Name der Datenbank für Kundendaten\n"       +
                                 "-dav       Name der Datenbank für Vertragsdaten\n"     +
-                                "-ft        Filetype der Datenbanken (.csv, .txt)\n\n"  +
+                                "-ft        Filetype der Datenbanken (.csv, .txt)\n"  +
+                                "-h         Help\n\n"                                   +
 
                                 "Für nicht eingegebene Argumente werden die Default Einstellungen aus App.config verwendet.");
            
