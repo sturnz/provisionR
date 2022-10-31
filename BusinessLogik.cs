@@ -47,10 +47,16 @@ namespace Jasmin1
                 var key = Console.ReadLine();
                 Console.WriteLine("VALUE");
                 var value = Console.ReadLine();
-
-                foreach (var line in Kundenfactory.GetKunden(key, value))
-                    Console.WriteLine(line);
-
+                if(key == "" && value == "")
+                {
+                    foreach (var line in Kundenfactory.GetKunden())
+                        Console.WriteLine(line);
+                }
+                else
+                {
+                    foreach (var line in Kundenfactory.GetKunden(key, value))
+                        Console.WriteLine(line);
+                }
             }
             else if(choice == "4")
             {
