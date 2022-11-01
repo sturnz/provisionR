@@ -42,6 +42,8 @@ namespace Jasmin1
             int index           = list.IndexOf(key);
             selektion           = vertragsdaten.Where(x => x.Split(';').ElementAt(index) == value).ToList();
 
+            if (selektion.Count <= 0) Console.WriteLine("Keine Einträge mit gewünschten Werten vorhanden");
+
             foreach (var line in selektion)
             {
                 var elements = line.Split(';');

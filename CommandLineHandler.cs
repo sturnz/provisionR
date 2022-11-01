@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Jasmin1
+﻿namespace Jasmin1
 {
     public class CommandLineHandler
     {
@@ -50,6 +44,6 @@ namespace Jasmin1
         public bool CheckValues (Dictionary<string, string> dict)
         {
             throw new NotImplementedException();
-        }
+        }       
     }
 }

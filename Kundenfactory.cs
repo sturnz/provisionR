@@ -43,6 +43,7 @@ namespace Jasmin1
 
             var list = kundendaten[0].Split(';').ToList();
             int index = list.IndexOf(key);
+            
             selektion = kundendaten.Where(x => x.Split(';').ElementAt(index) == value).ToList();
 
             foreach (var line in selektion)
