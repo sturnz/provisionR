@@ -42,11 +42,14 @@ namespace Jasmin1
             }
             else if (choice == "3")
             {
-                Console.WriteLine("");
-                Console.WriteLine("KEY");
+                Console.Clear();
+                Console.WriteLine("[Nach welchem Merkmal soll gesucht werden?]\n");
+                Console.WriteLine(Spartenauswahl.Print("KundenHeader"));
                 var key = Console.ReadLine();
-                Console.WriteLine("VALUE");
+
+                Console.WriteLine("\n[Nach welchem Wert soll gesucht werden?]");
                 var value = Console.ReadLine();
+
                 if(key == "" && value == "")
                 {
                     foreach (var line in Kundenfactory.GetKunden())
@@ -60,8 +63,12 @@ namespace Jasmin1
             }
             else if(choice == "4")
             {
+                Console.Clear();
+                Console.WriteLine("[Nach welchem Merkmal soll gesucht werden?]\n");
                 Console.WriteLine(Spartenauswahl.Print("VertragsHeader"));
                 var key     = Console.ReadLine();
+
+                Console.WriteLine("\n[Nach welchem Wert soll gesucht werden?]");
                 var value   = Console.ReadLine();
                     
                 foreach(var line in Vertragsfactory.GetVerträge(key, value))
