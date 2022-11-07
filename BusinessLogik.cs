@@ -10,15 +10,18 @@ namespace Jasmin1
         IVertragsfactory    Vertragsfactory     { get; set; }
         IKundenfactory      Kundenfactory       { get; set; }
         IGrafik             Spartenauswahl      { get; set; }
+        IKundenstamm        Kundenstamm         { get; set; }
         string              Datenbank           { get; set; }
+        
 
-        public BusinessLogik( INeuerKunde        neuerKunde, 
-                              INeuerVertrag      neuerVertrag, 
-                              IReader            reader, 
-                              IVertragsfactory   vertragsfactory, 
-                              IKundenfactory     kundenfactory,
-                              IGrafik            spartenauswahl,
-                              string             datenbank)
+        public BusinessLogik( INeuerKunde       neuerKunde, 
+                              INeuerVertrag     neuerVertrag, 
+                              IReader           reader, 
+                              IVertragsfactory  vertragsfactory, 
+                              IKundenfactory    kundenfactory,
+                              IGrafik           spartenauswahl,
+                              IKundenstamm      kundenstamm,
+                              string            datenbank)
         {
             NeuerKunde      = neuerKunde;
             NeuerVertrag    = neuerVertrag;
@@ -26,6 +29,7 @@ namespace Jasmin1
             Vertragsfactory = vertragsfactory;
             Kundenfactory   = kundenfactory;
             Spartenauswahl  = spartenauswahl;
+            Kundenstamm     = kundenstamm;
             Datenbank       = datenbank;
         }
 
@@ -42,24 +46,7 @@ namespace Jasmin1
             }
             else if (choice == "3")
             {
-                Console.Clear();
-                Console.WriteLine("[Nach welchem Merkmal soll gesucht werden?]\n");
-                Console.WriteLine(Spartenauswahl.Print("KundenHeader"));
-                var key = Console.ReadLine();
-
-                Console.WriteLine("\n[Nach welchem Wert soll gesucht werden?]");
-                var value = Console.ReadLine();
-
-                if(key == "" && value == "")
-                {
-                    foreach (var line in Kundenfactory.GetKunden())
-                        Console.WriteLine(line);
-                }
-                else
-                {
-                    foreach (var line in Kundenfactory.GetKunden(key, value))
-                        Console.WriteLine(line);
-                }
+                Kundenstamm.GetKundeBy();
             }
             else if(choice == "4")
             {

@@ -43,7 +43,8 @@ namespace Jasmin1
             IGrafik              spartengrafik       = new SelektionsKeyAuswahlgrafik(csvHeaderFactory);
             IVertragsfactory     vertragsfactory     = new Vertragsfactory(reader);
             IKundenfactory       kundenfactory       = new Kundenfactory(reader);
-            IBusinessLogik       businessLogik       = new BusinessLogik(neuerKunde, neuerVertrag, reader, vertragsfactory, kundenfactory, spartengrafik, datenbankKunden);
+            IKundenstamm        kundenstamm         = new Kundenstamm(spartengrafik, kundenfactory);
+            IBusinessLogik       businessLogik       = new BusinessLogik(neuerKunde, neuerVertrag, reader, vertragsfactory, kundenfactory, spartengrafik, kundenstamm, datenbankKunden);
 
 
 
