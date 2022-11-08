@@ -41,10 +41,12 @@ namespace Jasmin1
             IInitialisierung     initialisierung     = new Initialisierung(csvHeaderFactory);
             IGrafik              grafik              = new Auswahlgrafik();
             IGrafik              spartengrafik       = new SelektionsKeyAuswahlgrafik(csvHeaderFactory);
+            IGrafik              vertragsgrafik      = new SelektionsKeyAuswahlgrafik(csvHeaderFactory);
             IVertragsfactory     vertragsfactory     = new Vertragsfactory(reader);
             IKundenfactory       kundenfactory       = new Kundenfactory(reader);
-            IKundenstamm        kundenstamm         = new Kundenstamm(spartengrafik, kundenfactory);
-            IBusinessLogik       businessLogik       = new BusinessLogik(neuerKunde, neuerVertrag, reader, vertragsfactory, kundenfactory, spartengrafik, kundenstamm, datenbankKunden);
+            IKundenstamm         kundenstamm         = new Kundenstamm(spartengrafik, kundenfactory);
+            IVertragsbestand     vertragsbestand     = new Vertragsbestand(spartengrafik, vertragsfactory);
+            IBusinessLogik       businessLogik       = new BusinessLogik(neuerKunde, neuerVertrag, reader, vertragsfactory, kundenfactory, spartengrafik, kundenstamm, vertragsbestand, datenbankKunden);
 
 
 

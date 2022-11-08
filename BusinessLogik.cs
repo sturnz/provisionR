@@ -11,6 +11,7 @@ namespace Jasmin1
         IKundenfactory      Kundenfactory       { get; set; }
         IGrafik             Spartenauswahl      { get; set; }
         IKundenstamm        Kundenstamm         { get; set; }
+        IVertragsbestand    Vertragsbestand     { get; set; }
         string              Datenbank           { get; set; }
         
 
@@ -21,6 +22,7 @@ namespace Jasmin1
                               IKundenfactory    kundenfactory,
                               IGrafik           spartenauswahl,
                               IKundenstamm      kundenstamm,
+                              IVertragsbestand  vertragsbestand,
                               string            datenbank)
         {
             NeuerKunde      = neuerKunde;
@@ -30,6 +32,7 @@ namespace Jasmin1
             Kundenfactory   = kundenfactory;
             Spartenauswahl  = spartenauswahl;
             Kundenstamm     = kundenstamm;
+            Vertragsbestand = vertragsbestand;
             Datenbank       = datenbank;
         }
 
@@ -50,16 +53,7 @@ namespace Jasmin1
             }
             else if(choice == "4")
             {
-                Console.Clear();
-                Console.WriteLine("[Nach welchem Merkmal soll gesucht werden?]\n");
-                Console.WriteLine(Spartenauswahl.Print("VertragsHeader"));
-                var key     = Console.ReadLine();
-
-                Console.WriteLine("\n[Nach welchem Wert soll gesucht werden?]");
-                var value   = Console.ReadLine();
-                    
-                foreach(var line in Vertragsfactory.GetVerträge(key, value))
-                    Console.WriteLine(line); 
+                Vertragsbestand.GetVertragBy();
             }
         }
     }
